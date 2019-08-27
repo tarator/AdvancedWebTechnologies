@@ -1,0 +1,25 @@
+{
+	"name": "nodebasics",
+	"version": "1.0.0",
+	"description": "Introduction to Node based Dev",
+	"main": "index.js",
+	"author": "Alexander Pajer",
+	"license": "ISC",
+	"scripts": {
+		"sass": "gulp compile-sass",
+		"build": "./node_modules/.bin/webpack-cli",
+		"dev": "webpack -d --watch",
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"dependencies": {},
+	"devDependencies": {
+		"clean-webpack-plugin": "^3.0.0",
+		"node-sass": "^4.12.0",
+		"sass-loader": "^7.3.1",
+		"style-loader": "^1.0.0",
+		"ts-loader": "^6.0.4",
+		"typescript": "^3.5.3",
+		"webpack": "^4.39.3",
+		"webpack-cli": "^3.3.7"
+	}
+}

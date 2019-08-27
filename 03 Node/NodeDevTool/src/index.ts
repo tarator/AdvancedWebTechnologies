@@ -1,6 +1,8 @@
-import { Util } from "./util";
-import { Car } from "./car";
-import { State } from "./state";
+// ES module import
+// create bundle with `webpack` (requires webpack-cli)
+import { Util } from './util';
+import { Car } from './car';
+import { State } from './state';
 
 console.log(`Manually init util`);
 
@@ -12,8 +14,8 @@ console.log(`Init State`);
 let state = new State();
 
 function driveCar() {
-  let porsche = new Car();
-  porsche.drive();
+	let porsche = new Car();
+	porsche.drive();
 }
 
 driveCar();

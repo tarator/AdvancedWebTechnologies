@@ -1,6 +1,7 @@
 ### Node ###
-dist/
 # Logs
+dist/
+
 logs
 *.log
 npm-debug.log*

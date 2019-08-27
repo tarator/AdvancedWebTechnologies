@@ -1,148 +1,147 @@
-import * as moment from "moment";
+import * as moment from 'moment';
+import cloneDeep from 'lodash/cloneDeep';
 
 export class ObjectDemos {
-  objectsBasics() {
-    debugger;
+	objectsBasics() {
+		debugger;
 
-    // Plain old JavaScript
-    var myPerson = new Object();
-    // myPerson.smile = function(){...}
+		// Plain old JavaScript
+		var myPerson = new Object();
+		// myPerson.smile = function(){...}
 
-    var otherPerson = <any>{};
-    otherPerson.smile = function() {};
+		var otherPerson = <any>{};
+		otherPerson.smile = function() {};
 
-    let person: any = { Id: 1, Name: "Alexander" };
-    person.walk = () => console.log(`I am ${person.Name} and I'm walking`);
+		let person: any = { Id: 1, Name: 'Alexander' };
+		person.walk = () => console.log(`I am ${person.Name} and I'm walking`);
 
-    person.walk();
-  }
+		person.walk();
+	}
 
-  enhancedObjectLiterals() {
-    debugger;
+	enhancedObjectLiterals() {
+		debugger;
 
-    //Property value shorthand
-    function getCarES5(make, model, value) {
-      return {
-        make: make,
-        model: model,
-        value: value
-      };
-    }
+		//Property value shorthand
+		function getCarES5(make, model, value) {
+			return {
+				make: make,
+				model: model,
+				value: value
+			};
+		}
 
-    function getCar(make, model, value) {
-      return {
-        // with property value shorthand
-        // syntax, you can omit the property
-        // value if key matches variable
-        // name
-        make,
-        model,
-        value
-      };
-    }
+		function getCar(make, model, value) {
+			return {
+				// with property value shorthand
+				// syntax, you can omit the property
+				// value if key matches variable
+				// name
+				make,
+				model,
+				value
+			};
+		}
 
-    function getPersonClone(person: any) {
-      return { ...person };
-    }
+		function getPersonClone(person: any) {
+			return { ...person };
+		}
 
-    let person: any = { Id: 1, Name: "Alexander" };
-    var cloned = getPersonClone(person);
+		let person: any = { Id: 1, Name: 'Alexander', siblings: [ { Id: 1, Name: 'Alexander' } ] };
+		var cloned = getPersonClone(person);
 
-    //Method definition shorthand
-    function getBusES5(value) {
-      return {
-        depreciate: function() {
-          this.value -= 2500;
-        }
-      };
-    }
+		let deepClonedObj = cloneDeep(person);
 
-    function getBus(value) {
-      return {
-        // Method definition shorthand syntax
-        // omits `function` keyword & colon
-        depreciate() {
-          this.value -= 2500;
-        }
-      };
-    }
-  }
+		//Method definition shorthand
+		function getBusES5(value) {
+			return {
+				depreciate: function() {
+					this.value -= 2500;
+				}
+			};
+		}
 
-  destructuring() {
-    debugger;
+		function getBus(value) {
+			return {
+				// Method definition shorthand syntax
+				// omits `function` keyword & colon
+				depreciate() {
+					this.value -= 2500;
+				}
+			};
+		}
+	}
 
-    // object pattern matching
-    let { lName, fName } = { fName: "John", lName: "Doe" };
-    //let { Name, FirstName } = { fName: "John", lName: "Doe" };
+	destructuring() {
+		debugger;
 
-    // output: Doe, John
-    console.log(lName + ", " + fName);
+		// object pattern matching
+		let { lName, fName } = { fName: 'John', lName: 'Doe' };
+		//let { Name, FirstName } = { fName: "John", lName: "Doe" };
 
-    var rect = { x: 0, y: 10, width: 15, height: 20 };
+		// output: Doe, John
+		console.log(lName + ', ' + fName);
 
-    // Destructuring assignment
-    var { x, y, width, height } = rect;
-    console.log(x, y, width, height); // 0,10,15,20
+		var rect = { x: 0, y: 10, width: 15, height: 20 };
 
-    // Destructuring using REST Param
-    var { w, x, ...remaining } = { w: 1, x: 2, y: 3, z: 4 };
-    console.log(w, x, remaining); // 1, 2, {y:3,z:4}
-  }
+		// Destructuring assignment
+		var { x, y, width, height } = rect;
+		console.log(x, y, width, height); // 0,10,15,20
 
-  objAssign() {
-    debugger;
+		// Destructuring using REST Param
+		var { w, x, ...remaining } = { w: 1, x: 2, y: 3, z: 4 };
+		console.log(w, x, remaining); // 1, 2, {y:3,z:4}
+	}
 
-    var obj = { name: "alex" };
-    var copy = Object.assign({}, obj, {
-      birth: moment("19700402", "YYYYMMDD").format("MMM Do YY")
-    });
-    console.log(copy);
-  }
+	objAssign() {
+		debugger;
 
-  valref() {
-    debugger;
+		var obj = { name: 'alex' };
+		var copy = Object.assign({}, obj, {
+			birth: moment('19700402', 'YYYYMMDD').format('MMM Do YY')
+		});
+		console.log(copy);
+	}
 
-    let person: any = { Id: 1, Name: "Alexander" };
-    let myNumber: number = 100;
+	valref() {
+		debugger;
 
-    function passArgs(nbr: number, pers: any) {
-      nbr += 1;
-      pers.Name = "Alex";
-    }
+		let person: any = { Id: 1, Name: 'Alexander' };
+		let myNumber: number = 100;
 
-    passArgs(myNumber, person);
-    console.log("result for myNumber & person:", myNumber, person);
+		function passArgs(nbr: number, pers: any) {
+			nbr += 1;
+			pers.Name = 'Alex';
+		}
 
-    myNumber = 500;
-    person.Name = "Alexander";
-    passArgs(myNumber, Object.assign({}, person));
-    console.log(
-      "result for myNumber & person using Object.assign():",
-      myNumber,
-      person
-    );
+		passArgs(myNumber, person);
+		console.log('result for myNumber & person:', myNumber, person);
 
-    passArgs(myNumber, { ...person });
-    console.log("result for myNumber & person using spread:", myNumber, person);
-  }
+		myNumber = 500;
+		person.Name = 'Alexander';
+		passArgs(myNumber, Object.assign({}, person));
+		console.log('result for myNumber & person using Object.assign():', myNumber, person);
 
-  copyspread() {
-    debugger;
+		passArgs(myNumber, { ...person });
+		console.log('result for myNumber & person using spread:', myNumber, person);
+	}
 
-    //Spred operator on arrays
-    var [x, y, ...remaining] = [1, 2, 3, 4];
-    console.log(x, y); // 1, 2,
-    console.log(remaining);
+	copyspread() {
+		debugger;
 
-    //Spread operator on objects
-    var simplePerson = { name: "alex" };
-    var dataPerson = {
-      birth: moment("19700402", "YYYYMMDD").format("MMM Do YY"),
-      job: "dev dude"
-    };
-    console.log({ ...dataPerson });
+		//Spred operator on arrays
+		var [ x, y, ...remaining ] = [ 1, 2, 3, 4 ];
+		console.log(x, y); // 1, 2,
+		console.log(remaining);
 
-    var person = { ...simplePerson, ...dataPerson };
-    console.log(person);
-  }
+		//Spread operator on objects
+		var simplePerson = { name: 'alex' };
+		var dataPerson = {
+			birth: moment('19700402', 'YYYYMMDD').format('MMM Do YY'),
+			job: 'dev dude'
+		};
+		console.log({ ...dataPerson });
+
+		var person = { ...simplePerson, ...dataPerson };
+		console.log(person);
+	}
 }

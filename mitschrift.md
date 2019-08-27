@@ -35,4 +35,136 @@ customElements.define("x-star-rating", StarRating);
 <x-star-rating value="3" number="5"></x-star-rating>
 ````
 
+# NPM vs. Yarn
 
+## Vorteile von YARN (früher)
+
+* Vorteile von Yarn: man konnte bestimmen, wo der Cache liegt.
+* //discuss: Ist es leicht von Yarn nach npm zu wechseln
+* Vorteil von yarn WAR, dass es eine ```yarn.lock.json``` gab. Es gibt jetzt aber auch eine ```package.lock.json```
+
+## package.json vs. package.lock.json
+
+Package installieren: `npm i --save`
+Paket deinstallieren mit npm uninstall
+
+## SemVer
+
+Semantic versioning "^7.4.3
+
+## NPM
+
+Alle global installierten Pakete auflisten: `npm list -g --depth=0`
+
+````
+npm i -g @angular/cli webpack webpack-cli gulp gulp-cli
+````
+
+# React
+
+Achtung: die React-CLI heißt create-react-app
+https://reactjs.org/blog/2016/07/22/create-apps-with-no-configuration.html
+
+# Scaffolding
+
+Use CLI's or yeoman (VS-Code Extension: https://code.visualstudio.com/api/get-started/your-first-extension)
+
+
+# Webpack (Bundler)
+
+Konfiguration: `webpack.config.js`
+
+Webpack erstellt ein, oder mehrere Bundles. Wir beginnen mit `entry`.
+Das sind die Bundles. Webpack erstellt dann einen Dependency-Tree.
+
+Um webpack auszuführen: `webpack`
+
+
+
+CS-Code extension: LiveServer
+
+
+# Bazel
+
+ist wie `webpack` eine Build-Engine aber auf einem höheren Level.
+
+## Das Konzept des "Mono Repo"
+
+
+# Typescript
+
+`--lib` compiler option, falls ich neuere Sprachkonstrukte verwenden will.
+
+# TS: let vs. var
+
+`let` hat das neue Scoping Verhalten `{ ... }`
+
+`var` kann "leveling-up". somit ist sowas möglich:
+
+````javascript
+// levelling up: das ist gültig!
+index = 1
+var index = 0;
+
+// das funktioniert nicht (let hat kein levelling up)
+foo = 1;
+let foo = 0;
+
+````
+
+
+
+
+# TS Map function
+
+````javascript
+
+var fruits = [
+    { name: 'apples', quantity: 2, price: 3, region: 'europe' },
+    { name: 'bananas', quantity: 0, price: 5, region: 'caribean' },
+    { name: 'cherries', quantity: 5, price: 8, region: 'europe' }
+];
+
+
+//map -> shape arr
+var names = fruits.map(function(item) {
+    return item.name;
+});
+
+var lables = fruits.map(function(item) {
+    return {
+        label: `${item.name} costs ${item.price}`,
+        stockInEuro: item.quantity * item.price
+    };
+});
+````
+
+
+## TS Clone erstellen
+
+Ein Object ist in JavaScript technisch gesehen ein Array of Key/Value pairs.
+Diese Syntax erstellt einen Klon einer Instanz.
+
+````typescript
+
+class Cat {
+    age: 2;
+    name: 'Micifuz';
+}
+
+
+
+function useCat() {
+    let c = { name: 'Minka', age: 2};
+    console.log(c['name']); // gibt 'Minka' aus
+}
+
+// ... ist hier der spread Operator
+// dies erzeugt einen shallow-clone (keinen deep-clone)
+function getPersonClone(person: any) {
+    return { ...person };
+}
+
+
+````
+Für einen Deep-Clone kann die Bibliothek `lodash` verwendet werden.
