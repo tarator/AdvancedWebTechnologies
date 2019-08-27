@@ -25,11 +25,14 @@ Inline Code Sample: `function add(a, b){}`
 
 Block Code Sample:
 
+
 ```javascript
 function add(a, b) {
   console.log(a + b);
 }
 ```
+
+Please take the file `abc.png`
 
 ## Links & Images
 
