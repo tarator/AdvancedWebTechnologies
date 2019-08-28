@@ -194,3 +194,10 @@ https://docs.microsoft.com/en-us/dotnet/core/tools/?tabs=netcore2x
 
 
 
+# Serverseitige Node application
+
+Hat in der `package.json` eine `main` Option.
+
+Start mit `npm run start`
+
+
