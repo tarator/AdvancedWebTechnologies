@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, BehaviorSubject } from 'rxjs';
 import { Skill } from '../model';
 import { HttpClient } from '@angular/common/http';
 
@@ -7,9 +7,27 @@ import { HttpClient } from '@angular/common/http';
 	providedIn: 'root'
 })
 export class SkillsService {
-	constructor(private httpClient: HttpClient) {}
+	constructor(private httpClient: HttpClient) {
+		this.httpClient.get<Skill[]>('/assets/skills.json').subscribe((data) => {
+			this.arrSkills = data;
+			this.skills$.next(this.arrSkills);
+		});
+	}
+
+	private arrSkills: Skill[] = [];
+	private skills$: BehaviorSubject<Skill[]> = new BehaviorSubject(this.arrSkills);
 
 	getSkills(): Observable<Skill[]> {
-		return this.httpClient.get<Skill[]>('/assets/skills.json');
+		return this.skills$;
+	}
+
+	addSkill(item: Skill): void {
+		this.arrSkills.push(item);
+		this.skills$.next(this.arrSkills);
+	}
+
+	deleteSkill(item: Skill): void {
+		this.arrSkills = this.arrSkills.filter((val) => val.id != item.id);
+		this.skills$.next(this.arrSkills);
 	}
 }

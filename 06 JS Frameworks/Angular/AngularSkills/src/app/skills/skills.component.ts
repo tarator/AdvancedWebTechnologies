@@ -14,15 +14,19 @@ export class SkillsComponent implements OnInit {
 	constructor(private service: SkillsService) {}
 
 	ngOnInit() {
-		this.service.getSkills().subscribe((data) => (this.skills = data));
+		this.service.getSkills().subscribe((data) => {
+			console.log('dsfsdffg67e6ersdf', data);
+			this.skills = data;
+		});
 	}
 
 	removeSkill(s: Skill) {
-		this.skills = this.skills.filter((i: Skill) => i !== s);
+		// this.skills = this.skills.filter((i: Skill) => i !== s);
+		this.service.deleteSkill(s);
 	}
 
 	addSkill() {
-		let sk: Skill = { id: this.skills.length + 1, name: this.skillToAdd };
-		this.skills.push(sk);
+		let sk: Skill = { id: this.skills.length + 1, name: this.skillToAdd, hours: 10, completed: false };
+		this.service.addSkill(sk);
 	}
 }

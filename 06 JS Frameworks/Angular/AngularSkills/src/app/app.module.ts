@@ -6,9 +6,10 @@ import { HttpClientModule } from "@angular/common/http";
 import { AppComponent } from "./app.component";
 import { HelloComponent } from './hello/hello.component';
 import { SkillsComponent } from './skills/skills.component';
+import { KpibarComponent } from './kpibar/kpibar.component';
 
 @NgModule({
-  declarations: [AppComponent, HelloComponent, SkillsComponent],
+  declarations: [AppComponent, HelloComponent, SkillsComponent, KpibarComponent],
   imports: [BrowserModule, FormsModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent]
