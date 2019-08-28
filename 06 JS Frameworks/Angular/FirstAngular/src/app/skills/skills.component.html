@@ -1,4 +1,7 @@
 <h4>Skills</h4>
-<div *ngFor="let s of skills" (click)="skillSelected(s)" >
-    {{s.name}}
+
+<input type="text" [(ngModel)]="neuerSkillText"> <button (click)="addNewSkill()" >gjhkgjgj</button>
+
+<div *ngFor="let s of skills" >
+    <a (click)="skillSelected(s)" [routerLink]="" title="Remove skill" >{{s.name}}</a>
 </div>

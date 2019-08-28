@@ -23,7 +23,13 @@ class App extends React.Component<any, AppState> {
 		axios
 			.get('http://localhost:3000/skills.json')
 			.then((res) => {
-				this.setState((state, props) => ({ skills: res.data }));
+				let myFunc = function(state: any, props: any) {
+					return { skills: res.data };
+				};
+				this.setState(myFunc);
+
+				// alternative Schreibweise:
+				//this.setState((state, props) => ({ skills: res.data }));
 			})
 			.catch((err) => console.log('err fetching data: ', err));
 	}

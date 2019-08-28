@@ -7,9 +7,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SkillsComponent } from './skills/skills.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
+import { SkillDetailsComponent } from './skill-details/skill-details.component';
 
 @NgModule({
-	declarations: [ AppComponent, SkillsComponent, NavbarComponent ],
+	declarations: [ AppComponent, SkillsComponent, NavbarComponent, SkillDetailsComponent ],
 	imports: [ BrowserModule, AppRoutingModule, FormsModule, HttpClientModule ],
 	providers: [],
 	bootstrap: [ AppComponent ]
