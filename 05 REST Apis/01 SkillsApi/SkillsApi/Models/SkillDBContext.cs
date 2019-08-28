@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 namespace SkillsApi
 {
     //To manage Migrations & create the DB go to console:
+    // (ef steht für Entity Framework)
     //[dotnet restore]
     //dotnet ef migrations add MIGRATION-NAME
     //dotnet ef database update
@@ -23,8 +24,8 @@ namespace SkillsApi
         {
 
         }
-
+        // Collection for Skills
         public DbSet<Skill> Skills { get; set; }
-
+        public DbSet<Lesson> Lessons {get; set; }
     }
 }

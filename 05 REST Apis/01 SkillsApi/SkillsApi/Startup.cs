@@ -34,6 +34,7 @@ namespace SkillsApi {
             IConfigurationRoot configuration = cfgBuilder.Build ();
 
             services.AddSingleton (typeof (IConfigurationRoot), configuration);
+            // Connection String kommt aus appsettings.json
             var conStr = configuration["ConnectionStrings:SQLServerDBConnection"];
 
             //EF

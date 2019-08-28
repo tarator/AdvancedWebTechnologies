@@ -168,3 +168,29 @@ function getPersonClone(person: any) {
 
 ````
 Für einen Deep-Clone kann die Bibliothek `lodash` verwendet werden.
+
+
+# .NET Core vs .NET Framework
+
+.NET Framework (bzw. Mono) (V 4.x) wurde durch .NET Core (v 2.x) abgelöst.
+
+.NET 5 wird die beiden zusammenführen.
+Mono ist tot.
+
+NuGET ist das Package Repository für .NET
+DotNet CLI entspricht node cli.
+
+````bash
+dotnet restore npm i
+dotnet run
+
+dotnet new webapi -n FirstApi
+````
+## CLI 
+
+https://docs.microsoft.com/en-us/dotnet/core/tools/?tabs=netcore2x
+
+"Kestrel" ist in .NET der Console-based webserver.
+
+
+
