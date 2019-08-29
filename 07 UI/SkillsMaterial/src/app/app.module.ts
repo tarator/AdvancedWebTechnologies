@@ -8,10 +8,11 @@ import { HelloComponent } from './hello/hello.component';
 import { SkillsComponent } from './skills/skills.component';
 import { KpibarComponent } from './kpibar/kpibar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { SkillsMaterialModule } from './material-module';
+import { SkillsMaterialModule } from './material.module';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
-	declarations: [ AppComponent, HelloComponent, SkillsComponent, KpibarComponent ],
+	declarations: [ AppComponent, HelloComponent, SkillsComponent, KpibarComponent, NavbarComponent ],
 	imports: [ BrowserModule, FormsModule, HttpClientModule, BrowserAnimationsModule, SkillsMaterialModule ],
 	providers: [],
 	bootstrap: [ AppComponent ]

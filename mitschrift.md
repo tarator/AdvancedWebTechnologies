@@ -267,3 +267,12 @@ ist eine "Erweiterung" von Flexbox
 Um z.B. `@angular/material` zu installieren sollte man Schematics verwenden: `npm add @angular/material`
 Installiert nicht nur das Paket sondern macht noch andere notwendige Sachen.
 
+
+
+Das `color` hier ist eine Angular-Directive
+
+````
+  <mat-toolbar color="secondary">
+````
+
+

@@ -1,28 +1,60 @@
 <div>
-  <div class="addRow">
-    <label>Add a Skill:</label><input type="text" [(ngModel)]="skillToAdd" />
-    <a href="#" (click)="addSkill()">Add Skill</a>
-  </div>
-  <div>Here are the skills</div>
-  <div>
-    <table>
-      <thead>
-        <tr>
-          <th>ID</th>
-          <th>Name</th>
-          <th>Hours</th>
-          <th>Completed</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let s of skills" (click)="removeSkill(s)">
-          <td>{{ s.id }}</td>
-          <td>{{ s.name }}</td>
-          <td>{{ s.hours }}</td>
-          <td>{{ s.completed }}</td>
-        </tr>
-      </tbody>
-    </table>
-    <p>Click to remove a skill</p>
-  </div>
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>
+        Add a skill
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <mat-form-field>
+          <input 
+            matInput
+            placeholder="Skill name"
+            [(ngModel)]="skillToAdd" />
+        </mat-form-field>
+        <mat-form-field>
+            <input 
+              matInput
+              placeholder="Hours to learn"
+              type="number" />
+        </mat-form-field>
+        <mat-slide-toggle>Completed</mat-slide-toggle>
+    </mat-card-content>
+    <mat-card-actions align="end" >
+      <button mat-raised-button (click)="addSkill()" color="primary" >Add Skill</button>
+    </mat-card-actions>
+  </mat-card>
+
+
+
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>
+          Here are the skills
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Hours</th>
+            <th>Completed</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let s of skills" (click)="removeSkill(s)">
+            <td>{{ s.id }}</td>
+            <td>{{ s.name }}</td>
+            <td>{{ s.hours }}</td>
+            <td>{{ s.completed }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </mat-card-content>
+    <mat-card-actions align="end" >
+      <button mat-raised-button (click)="removeSkill()" color="primary" >Remove Skill</button>
+    </mat-card-actions>
+  </mat-card>
 </div>
