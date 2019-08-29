@@ -257,3 +257,13 @@ https://github.com/angular/flex-layout/wiki
 
 ist eine "Erweiterung" von Flexbox
 
+
+
+
+# Angular
+
+## Schematics
+
+Um z.B. `@angular/material` zu installieren sollte man Schematics verwenden: `npm add @angular/material`
+Installiert nicht nur das Paket sondern macht noch andere notwendige Sachen.
+
