@@ -201,3 +201,59 @@ Hat in der `package.json` eine `main` Option.
 Start mit `npm run start`
 
 
+
+# SCSS vs. Sass
+
+SCSS ist Sass mit CSS-Syntag.
+Der Vorteil von SCSS ist, dass es kompatibel mit CSS ist.
+
+Das bedeutet, dass ich mein bestehendes CSS nehmen kann und es reicht die Dateiendung von `*.css` nach `*.scss` zu ändern und ich habe gültiges `SCSS`
+
+Scss:
+
+````scss
+$font-stack:    Helvetica, sans-serif;
+$primary-color: #333;
+
+body {
+  font: 100% $font-stack;
+  color: $primary-color;
+}
+
+````
+
+Sass:
+
+````scss
+$font-stack:    Helvetica, sans-serif
+$primary-color: #333
+
+body
+  font: 100% $font-stack
+  color: $primary-color
+````
+
+# Flexbox und CSS-Grids
+
+## Flexbox
+https://flexboxplayground.notonebit.com/
+
+https://flexboxfroggy.com/#de
+
+## Css-Grid
+Spiel um Flexbox/CSS-Grid zu lernen:
+
+https://cssgridgarden.com/#de
+
+https://css-tricks.com/snippets/css/complete-guide-grid/
+
+
+
+## Doku des Material-Design Flex-Layouts
+
+Das Material Flex Layout hat direktiven für Flexbox und CSS-Grid
+
+https://github.com/angular/flex-layout/wiki
+
+ist eine "Erweiterung" von Flexbox
+

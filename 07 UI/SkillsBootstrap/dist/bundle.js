@@ -1375,7 +1375,7 @@ eval("\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nva
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! G:\Classes\AdvancedWebTechnologies\06 UI\SkillsBootstrap\src\index.ts */"./src/index.ts");
+module.exports = __webpack_require__(/*! C:\git\awt\07 UI\SkillsBootstrap\src\index.ts */"./src/index.ts");
 
 
 /***/ })
