@@ -7,10 +7,11 @@ import { AppComponent } from "./app.component";
 import { HelloComponent } from './hello/hello.component';
 import { SkillsComponent } from './skills/skills.component';
 import { KpibarComponent } from './kpibar/kpibar.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [AppComponent, HelloComponent, SkillsComponent, KpibarComponent],
-  imports: [BrowserModule, FormsModule, HttpClientModule],
+  imports: [BrowserModule, FormsModule, HttpClientModule, BrowserAnimationsModule],
   providers: [],
   bootstrap: [AppComponent]
 })
