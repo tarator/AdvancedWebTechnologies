@@ -35,6 +35,7 @@ export class AuthService {
   }
 
   logOn(user, password, onSuccess?) {
+    
     return this.fireAuth.auth
       .signInWithEmailAndPassword(user, password)
       .then(onSuccess)
